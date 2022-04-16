@@ -12,7 +12,7 @@ from getRecipes import getSearchResults, getRecipeDetails
 app = Flask(__name__, static_folder="./static/")
 app.config["SECRET_KEY"] = "mysecretkey_is_safe"
 BASE_DIR = os.getcwd()
-db_path = f"{BASE_DIR}/static/user.db"
+db_path = f"{BASE_DIR}/static/static/user.db"
 topics = ['World', 'Nation', 'Business', 'Technology', 'Entertainment', 'Sports', 'Science', 'Health']
 
 
