@@ -135,9 +135,12 @@ def login():
                 request.form["RegisterPassword"])
             conn = sqlite3.connect(db_path)
             db = conn.cursor()
-            db.execute(f"INSERT INTO login ('username', 'password') values('{RegisterUserName}','{RegisterPassword}')")
-            conn.commit()
-            conn.close()
+            try:
+                db.execute(f"INSERT INTO login ('username', 'password') values('{RegisterUserName}','{RegisterPassword}')")
+                conn.commit()
+                conn.close()
+            except sqlite3.IntegrityError:
+                render_template("login.html", data="fail", msg="You already have an account")
             # print(RegisterUserName)
             # print(RegisterPassword)
         elif request.form["CheckLogReg"] == "login":
@@ -154,7 +157,7 @@ def login():
                 # return render_template("home.html")
                 return redirect(url_for("home"))
             else:
-                return render_template("login.html", data="fail")
+                return render_template("login.html", data="fail", msg="Incorrect Password")
             conn.close()
         else:
             return render_template("404.html")
