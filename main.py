@@ -9,7 +9,7 @@ newsapi = NewsApiClient(api_key='4d05b1bf662540e38cdcb3f04920577f')
 import sqlite3
 import requests
 from getRecipes import getSearchResults, getRecipeDetails
-app = Flask(__name__)
+app = Flask(__name__, static_folder="./static/")
 app.config["SECRET_KEY"] = "mysecretkey_is_safe"
 BASE_DIR = os.getcwd()
 db_path = f"{BASE_DIR}/static/user.db"
