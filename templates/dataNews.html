@@ -137,6 +137,9 @@
 	table{
 		margin-bottom: 2vh;
 	}
+	.linksHighlight:hover{
+		background-color: #676ed1;
+	}
 </style>
 {% endblock %}
 <!--Comment-->
@@ -146,9 +149,7 @@
     {% for item in data2 %}
     <div class="linkContainer">
         <a class="linksHighlight" href="{{ url_for('news', top=item) }}" id="link">
-            <div id="topic" style="color: white">
-                {{item}}
-            </div>
+            <div id="topic" style="color: white; background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px;	transition: 0.3s; font-size: 20px;"> {{item}} </div>
         </a>
     </div>
     {% endfor %}
