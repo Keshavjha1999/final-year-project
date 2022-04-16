@@ -1,0 +1,138 @@
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent;
+}
+
+.sidebar {
+	margin-left: 5vw;
+	padding: 0;
+	width: 15vw;
+	background-color: #393861;
+	position: absolute;
+	top: 20%;
+	text-align: center;
+	overflow: auto;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+.sidebar a {
+	display: block;
+	color: white;
+	padding: 16px;
+	font-size: 20px;
+	text-decoration: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+.sidebar a.active {
+	background-color: #232545;
+	color: white;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+.sidebar a:hover:not(.active) {
+	background-color: #696780;
+	color: white;
+}
+
+.username2 {
+	color: #c3a87a;
+	display: inline-block;
+	position: absolute;
+	top: 5%;
+	left: 8%;
+	text-transform: uppercase;
+}
+
+#toDoHeading {
+	color: white;
+	text-align: center;
+	position: relative;
+	margin-top: 1vh;
+	font-size: 1.75em;
+	font-weight: bold;
+}
+
+#taskArea {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	overflow: auto;
+	height: 70%;
+	margin-top: 1.25vh;
+	color: white;
+	text-align: center;
+}
+
+.leftToDoBox {
+	position: relative;
+	height: auto;
+	display: inline-block;
+	width: 6vw;
+	margin-left: 0.5vw;
+	text-align: center;
+	vertical-align: top;
+	color: white;
+	border-right: 1px solid white;
+}
+
+.rightToDoBox {
+	position: relative;
+	height: 100%;
+	display: inline-block;
+	width: 21vw;
+	margin-right: 0.5vw;
+	text-align: center;
+	vertical-align: top;
+	color: white;
+}
+
+.taskInputField {
+	margin-top: 1vh;
+	background-color: #393861;
+	color: white;
+	height: 2vh;
+	width: 21vw;
+	float: left;
+	margin-left: 0.5vw;
+}
+
+.taskInputField:focus {
+	border-bottom: 2px solid white;
+}
+
+#addTaskArea {
+	text-align: center;
+	position: relative;
+}
+
+.taskButton {
+	position: relative;
+	color: white;
+	margin-top: 1vh;
+	text-decoration: none;
+	border-radius: 25px;
+	width: 10vw;
+	height: 3vh;
+	font-size: 1em;
+	background-color: #232545;
+	border-style: none;
+	margin-bottom: 1vh;
+}
+
+.taskButton:hover {
+	background-color: #696780;
+	cursor: pointer;
+}
+
+#addTaskCancelButton {
+	margin-right: 1vw;
+	display: inline-block;
+	width: 5vw;
+	margin-top: 1.75vh;
+	font-size: 0.7em;
+	position: relative;
+}

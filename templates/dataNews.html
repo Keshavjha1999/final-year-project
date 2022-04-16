@@ -1,0 +1,199 @@
+{% extends 'baseNews.html' %}
+<!--Comment-->
+{% block style %}
+<style>
+	.sidebar {
+		margin-left: 5vw;
+		padding: 0;
+		width: 15vw;
+		background-color: #393861;
+		position: absolute;
+		top: 20%;
+		text-align: center;
+		overflow: auto;
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+	}
+
+	.sidebar a {
+		display: block;
+		color: white;
+		padding: 16px;
+		font-size: 20px;
+		text-decoration: none;
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+	}
+
+	.sidebar a.active {
+		background-color: #232545;
+		color: white;
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+	}
+
+	.sidebar a:hover:not(.active) {
+		background-color: #696780;
+		color: white;
+	}
+
+	.username2 {
+		color: #c3a87a;
+		display: inline-block;
+		position: absolute;
+		top: 5%;
+		left: 8%;
+		text-transform: uppercase;
+	}
+
+    :root {
+		--second: #393861;
+		--yellowish: #C3A87A;
+	}
+	a {
+		text-decoration: none;
+		color: white;
+	}
+	#topicContainer {
+	  display: flex;
+	  flex-direction: row;
+	  position: relative;
+	  margin-top: 12vh;
+	  margin-left: 5%;
+	  border-bottom: solid black 1px;
+      max-width: fit-content;
+	  flex-wrap: nowrap;
+	  margin-bottom: 2%;
+	}	
+	.linkContainer {
+	  position: relative;
+	  width: fit-content;
+	  border-bottom: solid white 1px;
+	  flex-wrap: nowrap;
+	  /* margin-bottom: 2%; */
+	  padding-right: 1vw;
+	}
+	#topicContainer::after {
+		border-bottom: none;
+	}
+	#topic {
+		font-size: x-large;
+		font-size: 3vh;
+	}
+
+	#linkContainer {
+		margin-right: 2%;
+		/* margin-bottom: 2%; */
+	}
+
+	#news {
+		/* background: url("../static/logos/linkedin.png") no-repeat; */
+		background-size: 15vh 15vh;
+		background-position: center;
+		background-color: var(--second);
+		width: 25vh;
+		height: 25vh;
+		border-radius: 25%;
+		margin-left: 2%;
+		margin-right: 2%;
+
+	}
+	#heading {
+		grid-row: 1;
+		grid-column: 2;
+		font-size: 3vh;
+		color: white;
+		font-weight: bolder;
+	}
+	#newsContent {
+		grid-row: 2;
+		grid-column: 2;
+		font-size: medium;
+		color: white;
+	}
+
+	#SummaryContainer {
+		width: 50vw;
+		height: 20vh;
+		/*margin-bottom: 4%;*/
+		color: var(--yellowish);
+	}
+	#n {
+		margin-left: 5%;
+	}
+	td{
+		max-width: 60vw;
+	}
+	#spaceHere td{
+		padding-right: 1vw;
+	}
+	img{
+		width: 20vh;
+		height: 20vh;
+		margin-left: 2.5vh;
+		margin-top: 2.5vh;
+		border-radius: 25%;
+	}
+	table{
+		margin-bottom: 2vh;
+	}
+</style>
+{% endblock %}
+<!--Comment-->
+{% block topics %}
+<!--topics-->
+<div id="topicContainer">
+    {% for item in data2 %}
+    <div class="linkContainer">
+        <a class="linksHighlight" href="{{ url_for('news', top=item) }}" id="link">
+            <div id="topic" style="color: white">
+                {{item}}
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+<!-- actual news -->
+{% endblock %}
+<div>
+    <!-- actual news -->
+    {% block actualNews %}
+    <div id="n">
+        {% for i in range(imgUrl|length-1)%}
+        <table>
+            <tr id="spaceHere">
+                <!-- <td rowspan="2"><div id="news"></div></td> -->
+                <td rowspan="2">
+                    <div id="news">
+                        <img alt="No-Image" src="{{imgUrl[i+1]}}"/>
+                    </div>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>
+                    <!-- <br> -->
+                    <div id="SummaryContainer">
+                        <div id="heading">
+                            <a href="{{url[i+1]}}" target="_blank">
+                                <h5>{{heading[i+1]}}</h5>
+                            </a>
+                        </div>
+						<p style="margin-top: 15px">{{content[i+1]}}</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+</div>
+<!-- end for -->
+{% endblock %}
+<!-- endactual news -->
+<!-- -->
+{% block body %}
+<script>
+</script>
+{% endblock %}

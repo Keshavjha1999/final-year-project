@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Main Page</title>
+		<style type="text/css">
+			.sidebar {
+				margin-left: 5vw;
+				padding: 0;
+				width: 15vw;
+				background-color: #393861;
+				position: absolute;
+				top: 20%;
+				text-align: center;
+				overflow: auto;
+				border-top-left-radius: 25px;
+				border-bottom-left-radius: 25px;
+			}
+
+			.sidebar a {
+				display: block;
+				color: white;
+				padding: 16px;
+				font-size: 20px;
+				text-decoration: none;
+				border-top-left-radius: 25px;
+				border-bottom-left-radius: 25px;
+			}
+
+			.sidebar a.active {
+				background-color: #232545;
+				color: white;
+				border-top-left-radius: 25px;
+				border-bottom-left-radius: 25px;
+			}
+
+			.sidebar a:hover:not(.active) {
+				background-color: #696780;
+				color: white;
+			}
+
+			.username2 {
+				color: #c3a87a;
+				display: inline-block;
+				position: absolute;
+				top: 5%;
+				left: 8%;
+				text-transform: uppercase;
+			}
+
+
+			::-webkit-scrollbar {
+				width: 0px;
+				background: transparent;
+			}
+
+			.sidebar {
+				margin-left: 5vw;
+				padding: 0;
+				width: 15vw;
+				background-color: #393861;
+				position: absolute;
+				top: 20%;
+				text-align: center;
+				overflow: auto;
+				border-top-left-radius: 25px;
+				border-bottom-left-radius: 25px;
+			}
+
+			.sidebar a {
+				display: block;
+				color: white;
+				padding: 16px;
+				font-size: 20px;
+				text-decoration: none;
+				border-top-left-radius: 25px;
+				border-bottom-left-radius: 25px;
+			}
+
+			.sidebar a.active {
+				background-color: #232545;
+				color: white;
+				border-top-left-radius: 25px;
+				border-bottom-left-radius: 25px;
+			}
+
+			.sidebar a:hover:not(.active) {
+				background-color: #696780;
+				color: white;
+			}
+
+			.username2 {
+				color: #c3a87a;
+				display: inline-block;
+				position: absolute;
+				top: 5%;
+				left: 8%;
+				text-transform: uppercase;
+			}
+
+			#toDoHeading {
+				color: white;
+				text-align: center;
+				position: relative;
+				margin-top: 1vh;
+				font-size: 1.75em;
+				font-weight: bold;
+			}
+
+			#taskArea {
+				display: inline-block;
+				position: relative;
+				width: 100%;
+				overflow: auto;
+				height: 70%;
+				margin-top: 1.25vh;
+				color: white;
+				text-align: center;
+			}
+
+			.leftToDoBox {
+				position: relative;
+				height: auto;
+				display: inline-block;
+				width: 6vw;
+				margin-left: 0.5vw;
+				text-align: center;
+				vertical-align: top;
+				color: white;
+				border-right: 1px solid white;
+			}
+
+			.rightToDoBox {
+				position: relative;
+				height: 100%;
+				display: inline-block;
+				width: 21vw;
+				margin-right: 0.5vw;
+				text-align: center;
+				vertical-align: top;
+				color: white;
+			}
+
+			.taskInputField {
+				margin-top: 1vh;
+				background-color: #393861;
+				color: white;
+				height: 2vh;
+				width: 21vw;
+				float: left;
+				margin-left: 0.5vw;
+			}
+
+			.taskInputField:focus {
+				border-bottom: 2px solid white;
+			}
+
+			#addTaskArea {
+				text-align: center;
+				position: relative;
+			}
+
+			.taskButton {
+				position: relative;
+				color: white;
+				margin-top: 1vh;
+				text-decoration: none;
+				border-radius: 25px;
+				width: 10vw;
+				height: 3vh;
+				font-size: 1em;
+				background-color: #232545;
+				border-style: none;
+				margin-bottom: 1vh;
+			}
+
+			.taskButton:hover {
+				background-color: #696780;
+				cursor: pointer;
+			}
+
+			#addTaskCancelButton {
+				margin-right: 1vw;
+				display: inline-block;
+				width: 5vw;
+				margin-top: 1.75vh;
+				font-size: 0.7em;
+				position: relative;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: 'Avenir';
+				font-style: normal;
+  				font-weight:50;
+			}
+			body {
+				background-color: #232545;
+			}
+			#FullPage {
+				position: fixed;
+				display: grid;
+				grid-template-columns: 20vw 67vw 13vw;
+			}
+			#LeftSide {
+				height: 100vh;
+				width: 20vw;
+				background-color: #393861;
+				margin: 0;
+				padding: 0;
+				grid-column: 1;
+			}
+
+			#Circle {
+				background-color: white;
+				height: 8vh;
+				width: 8vh;
+				position: absolute;
+				top: 2%;
+				left: 2%;
+				border-radius: 50%;
+			}
+			#Middle {
+				width: 80vw;
+				height: 100vh;
+				margin-left: 20vw;
+				/* background-color: white; */
+				position: absolute;
+				top: 0;
+				overflow-y: scroll;
+			}
+			/* Hide scrollbar for Chrome, Safari and Opera */
+			#Middle::-webkit-scrollbar {
+				display: none;
+			}
+
+			/* Hide scrollbar for IE, Edge and Firefox */
+			#Middle {
+				-ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+			}
+
+			#MyJumbotron {
+				width: 75vw;
+				/* position: absolute; */
+				height: 40vh;
+				border-radius: 3vh;
+				background-color: #393861;
+				background: url({{imgUrl[0]}}),
+					linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) no-repeat;
+				background-size: 100% 100%;
+				position: relative;
+				top: 7vh;
+				background-blend-mode: overlay;
+			}
+			#topHeading {
+				color: white;
+				position: absolute;
+				left: 2%;
+				bottom: 30%;
+				/* vertical-align: middle; */
+			}
+			#topSumm {
+				color: white;
+				position: absolute;
+				left: 2%;
+				bottom: 20%;
+				font-weight: normal;
+			}
+			a {
+				text-decoration: none;
+			}
+			#timePanel {
+				color: white;
+				position: absolute;
+				right: 0;
+				top: 0;
+				font-size: x-large;
+				margin-right: 3vw;
+				margin-top: 1vh;
+			}
+		</style>
+		{% block style %} {% endblock %}
+	</head>
+	<body>
+		<div id="FullPage">
+			<div id="LeftSide">
+				<div style="display: inline-block">
+					<div id="Circle"></div>
+					<div class="username2">{{username}}</div>
+				</div>
+
+				<div class="sidebar">
+					<a href="{{url_for('home')}}">Dashboard</a>
+					<a class="active" href="#">News</a>
+					<a href="{{url_for('textToSpeech')}}">Text-To-Speech</a>
+					<a href="{{url_for('recipes')}}">Recipes</a>
+				</div>
+
+				<div id="Middle">
+					<div id="timePanel">Hi</div>
+
+					<center>
+						<div id="MyJumbotron">
+							<a href="https://www.bbc.com/news/world" target="_blank"
+								><h1 id="topHeading">{{heading[0]}}</h1></a
+							>
+							<h4 id="topSumm">{{content[0]}}</h4>
+						</div>
+					</center>
+
+					<nav>
+						<ul>
+							<li><div>{% block topics %} {% endblock %}</div></li>
+						</ul>
+					</nav>
+					<div>{% block actualNews %} {% endblock %}</div>
+				</div>
+			</div>
+		</div>
+		{% block body %} {% endblock %}
+		<script type="text/javascript">
+			let timeDisplay = document.getElementById("timePanel");
+			function updateClock() {
+				var now = new Date();
+
+				let options = {
+					weekday: "long",
+					year: "null",
+					// month: "short",
+					// day: "numeric",
+				};
+				let options2 = {
+					hour: "2-digit",
+					minute: "2-digit",
+				};
+				timeDisplay.innerHTML =
+					now.toDateString("en-us", options).slice(0, 3) +
+					" | " +
+					now.toLocaleTimeString("en-us", options2);
+				// timeDisplay2.innerHTML = now.toLocaleTimeString("en-us", options2);
+				setTimeout(updateClock, 1000);
+			}
+
+			updateClock();
+		</script>
+	</body>
+</html>
