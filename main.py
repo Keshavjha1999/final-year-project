@@ -64,20 +64,20 @@ def homeScreen():
     else:
         return render_template("welcome_page.html")
 
-# @app.route("/home")
-# def home():
-#     if "user" in session:
-#         return render_template("home.html", username=session["user"])
-#     else:
-#         return redirect(url_for("login"))
+@app.route("/home")
+def home():
+    if "user" in session:
+        return render_template("home.html", username=session["user"])
+    else:
+        return redirect(url_for("login"))
 
 # @ app.route("/welcome")
 # def welcome():
 #     return render_template("welcome_page.html")
 
-@app.route("/bhag")
-def log():
-    return render_template("login.html")
+# @app.route("/bhag")
+# def log():
+#     return render_template("login.html")
 
 
 @ app.route("/news/<top>")
