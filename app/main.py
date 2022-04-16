@@ -6,12 +6,9 @@ import os.path
 from werkzeug.security import generate_password_hash, check_password_hash
 from newsapi import NewsApiClient
 newsapi = NewsApiClient(api_key='4d05b1bf662540e38cdcb3f04920577f')
-from gnewsclient import gnewsclient
 import sqlite3
 import requests
-from bs4 import BeautifulSoup
 from getRecipes import getSearchResults, getRecipeDetails
-import json
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "mysecretkey_is_safe"
 BASE_DIR = os.getcwd()
