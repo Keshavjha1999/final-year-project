@@ -42,18 +42,20 @@ def getTopNewsBBC(top):
     for a in result['articles']:
         if(a['url'] != None and a['urlToImage'] != None and a['title'] != None and a['content'] != None):
             url = a['url']
-            urlToImage = a['urlToImage']
-            headlin = a['title']
-            content = a['content']
-            if(len(content) > 150):
+            urlToImage = str(a['urlToImage'])
+            headlin = str(a['title'])
+            content = str(a['content'])
+            if(len(content) > 140):
                 content = str(content) + '...'
             strin.append(url + '||' + urlToImage + '||' + headlin + '||' + content + '\n')
     
     if os.path.exists("./static/myfile.txt"):
         os.remove("./static/myfile.txt")
     file1 = open("./static/myfile.txt","w")
-
-    file1.writelines(strin)
+    try:
+        file1.writelines(strin)
+    except UnicodeEncodeError:
+        pass
 
 @app.route("/")
 def homeScreen():
